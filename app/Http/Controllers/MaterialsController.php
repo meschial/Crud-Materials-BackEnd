@@ -25,26 +25,25 @@ class MaterialsController extends Controller
 
     public function show($id)
     {
-        return $this->materials->find($id);
+        $material = $this->materials->getId($id);
+        return $material;
     }
     
     public function store(Request $request)
     {
-        $this->materials->create($request->all());
-        return response()->json(['data' => ['message' => 'Material foi criado com sucesso!']]);
+        $material = $this->materials->store($request);
+        return $material;
     }
 
     public function update($id, Request $request)
     {
-        $materials = $this->materials->find($id);
-        $materials->update($request->all());
-        return response()->json(['data' => ['message' => 'Material foi atualizado com sucesso!']]);
+        $material = $this->materials->edit($id, $request);
+        return $material;
     }
 
     public function destroy($id)
     {
-        $materials = $this->materials->find($id);
-        $materials->delete();
-        return response()->json(['data' => ['message' => 'Material foi deletado com sucesso!']]);
+        $material = $this->materials->destroyMaterial($id);
+        return $material;
     }
 }

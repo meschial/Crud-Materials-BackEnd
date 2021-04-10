@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 class CreateMateriaisTable extends Migration
@@ -19,7 +20,7 @@ class CreateMateriaisTable extends Migration
             $table->string('description');
             $table->string('brand');
             $table->integer('quantity');
-            $table->date('date');
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
         });
     }
 
