@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Symfony\Component\HttpFoundation\Response;
 
 class Materials extends Model 
 {
@@ -11,35 +12,35 @@ class Materials extends Model
     {  
          $material = Materials::find($id);
         if($material){
-          return $material;
+          return response()->json( $material, Response::HTTP_ACCEPTED);
         }
-        return response()->json(['data' => ['message' => 'Material não encontrado!']]);
+        return response()->json(Response::HTTP_OK);
     }
 
     public function store($request)
     {
         if(Materials::create($request->all())){
-          return response()->json(['data' => ['message' => 'Material foi criado com sucesso!']]);
+          return response()->json(Response::HTTP_CREATED);
         }
-        return response()->json(['data' => ['message' => 'Não foi possível criar o material!']]);
+        return response()->json(Response::HTTP_OK);
     }
 
     public function edit($id, $request)
     {
         $material = Materials::find($id);
         if($material->update($request->all())){
-          return response()->json(['data' => ['message' => 'Material foi atualizado com sucesso!']]);
+          return response()->json(Response::HTTP_ACCEPTED);
         }
-        return response()->json(['data' => ['message' => 'Não foi possível editar o material!']]);
+        return response()->json(Response::HTTP_OK);
     }
 
     public function destroyMaterial($id)
     {
         $materials = Materials::find($id);
         if($materials->delete()){
-          return response()->json(['data' => ['message' => 'Material foi deletado com sucesso!']]);
+          return response()->json(Response::HTTP_ACCEPTED);
         }
-        return response()->json(['data' => ['message' => 'Não foi possível deletar o material!']]);
+        return response()->json(Response::HTTP_OK);
     }
 
 

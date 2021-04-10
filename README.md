@@ -1,3 +1,11 @@
+#Crud de materiais Constr UP
+
+1) Composer install
+2) Crie um banco de dados e configure o acesso no .env
+3) Na pasta do projeto rode o comando php artisan migrate
+4) Depois rode "php -S 127.0.0.1:3000 -t public/" para dar o start no projeto
+5) FrontEnd https://github.com/meschial/Crud-Materials-FrontEnd
+
 # Lumen PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)

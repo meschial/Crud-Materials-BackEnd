@@ -25,25 +25,21 @@ class MaterialsController extends Controller
 
     public function show($id)
     {
-        $material = $this->materials->getId($id);
-        return $material;
+        return $this->materials->getId($id);
     }
     
     public function store(Request $request)
     {
-        $material = $this->materials->store($request);
-        return $material;
+        return $this->materials->store($request);
     }
 
     public function update($id, Request $request)
     {
-        $material = $this->materials->edit($id, $request);
-        return $material;
+        return $this->materials->edit($id, $request);
     }
 
     public function destroy($id)
     {
-        $material = $this->materials->destroyMaterial($id);
-        return $material;
+        return $this->materials->destroyMaterial($id);
     }
 }
